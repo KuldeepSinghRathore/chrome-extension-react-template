@@ -8,7 +8,7 @@ function createPopup(x: number, y: number) {
     popupDiv.className = 'extension-popup';
     popupDiv.innerHTML = 'Save Highlight?';
     popupDiv.style.cssText = `
-      position: fixed;
+      position: absolute;
       background: #1f2937;
       color: white;
       padding: 8px 12px;
@@ -17,14 +17,16 @@ function createPopup(x: number, y: number) {
       z-index: 999999;
       font-size: 14px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transform: translate(-50%, -100%);
+      white-space: nowrap;
     `;
 
     popupDiv.addEventListener('click', handleAddToList);
     document.body.appendChild(popupDiv);
   }
 
-  popupDiv.style.top = `${y +20}px`;
-  popupDiv.style.left = `${x +20}px`;
+  popupDiv.style.top = `${y}px`;
+  popupDiv.style.left = `${x}px`;
 }
 
 function handleAddToList() {
